@@ -1,5 +1,5 @@
 const stringContainsNonNumerals = (inputString) => {
-    const regex = /[^(I|X|C|M|L|D)]/g
+    const regex = /[^(I|V|X|C|M|L|D)]/g
     return inputString.match(regex) ? true : false
 }
 

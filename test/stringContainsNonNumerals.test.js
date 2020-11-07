@@ -21,7 +21,7 @@ test("returns false for string containing only numerals", () => {
     
     const returnedVal = stringContainsNonNumerals(inputString)
 
-    expect(returnedVal).toBe(true)
+    expect(returnedVal).toBe(false)
 })
 
 
