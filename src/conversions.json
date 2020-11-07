@@ -1,0 +1,40 @@
+[
+    {
+        "numeral": "I",
+        "value": 1,
+        "isUnit": true,
+        "nextUnitAndFive": ["V", "X"]
+    },
+    {
+        "numeral": "V",
+        "value": 5,
+        "isUnit": false
+    },
+    {
+        "numeral": "X",
+        "value": 10,
+        "isUnit": true,
+        "nextUnitAndFive": ["L", "C"]
+    },
+    {
+        "numeral": "L",
+        "value": 50,
+        "isUnit": false
+    },
+    {
+        "numeral": "C",
+        "value": 100,
+        "isUnit": true,
+        "nextUnitAndFive": ["D", "M"]
+    },
+    {
+        "numeral": "D",
+        "value": 1,
+        "isUnit": false
+    },
+    {
+        "numeral": "M",
+        "value": 1000,
+        "isUnit": false
+    }
+]
