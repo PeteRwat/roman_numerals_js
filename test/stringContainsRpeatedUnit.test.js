@@ -1,4 +1,4 @@
-const stringContainsRepeatedUnit = require('../src/check-repeated-unit')
+const stringContainsRepeatedUnit = require('../src/stringContainsRepeatedUnit')
 
 test("returns true for string containing IIII", () => {
     const inputString = "IIIIV"
