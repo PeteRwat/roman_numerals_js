@@ -1,19 +1,27 @@
 const conversions = require('../conversions.json')
 
 const checkClosestUnitSub = (currentValue, nextValue) => {
-    if(!(currentValue/nextValue === 10 || currentValue/nextValue === 5)){
+    if(!(currentValue/nextValue === (1/10) || currentValue/nextValue === (1/5))){
         throw new Error ("can only subtract the next lowest unit")
     }
 }
 
-const checkAddSubSameUnit = (index, reversedNumerals) => {
-    if(index < reversedNumerals.length-2){
-        const currentValue = conversions[reversedNumerals[index]]
-        const secondNextValue = conversions[reversedNumerals[index + 2]]
+const checkAddSubSameUnit = (index, numerals) => {
+    if(index < numerals.length-2){
+        const currentValue = conversions[numerals[index]]
+        const secondNextValue = conversions[numerals[index + 2]]
         if(currentValue === secondNextValue){
             throw new Error ("can not add and subtract the same unit value")
         }
     }  
+}
+
+const checkSingleUnitSub = (index, numerals) => {
+    if(index != 0){
+        if(numerals[index - 1] === numerals[index]){
+            throw new Error ("can only subtract a single unit value")
+        }
+    }
 }
 
 const isLastIndex = (index, reversedNumerals) => {
@@ -21,32 +29,25 @@ const isLastIndex = (index, reversedNumerals) => {
 }
 
 const processNumerals = (numerals) => {
-    const reversedNumerals = numerals.reverse()
-
     var total = 0
-    var skipNext = false
 
-    reversedNumerals.forEach((numeral, index) => {
-        if (skipNext) {
-            skipNext = false
-        } else {
+    numerals.forEach((numeral, index) => {
             const currentValue = conversions[numeral]
             
-            if (isLastIndex(index, reversedNumerals)) {
+            if (isLastIndex(index, numerals)) {
                 total += currentValue
             } else {
-                const nextValue = conversions[reversedNumerals[index + 1]]
+                const nextValue = conversions[numerals[index + 1]]
 
-                if (currentValue > nextValue) {
+                if (currentValue < nextValue) {
+                    checkSingleUnitSub(index, numerals)
                     checkClosestUnitSub(currentValue, nextValue)
-                    total += currentValue - nextValue
-                    skipNext = true
-                } else {
-                    checkAddSubSameUnit(index, reversedNumerals)
+                    checkAddSubSameUnit(index, numerals)
+                    total -= currentValue
+                } else {  
                     total += currentValue
                 }
             }
-        }
     })
 
     return total

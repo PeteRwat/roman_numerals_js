@@ -29,3 +29,9 @@ test("throws error if adding and subtracting the same unit value", () => {
 
     expect(() => processNumerals(inputString.split(""))).toThrow(new Error("can not add and subtract the same unit value"))
 })
+
+test("throws error if subtracting more than one unit value", () => {
+    const inputString = "IIV"
+
+    expect(() => processNumerals(inputString.split(""))).toThrow(new Error("can only subtract a single unit value"))
+})
