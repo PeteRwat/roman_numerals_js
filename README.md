@@ -1,7 +1,7 @@
-##Numeral to Arabic Conversion
+## Numeral to Arabic Conversion
 First in a series of coding challenges.
 
-##Basics
+## Basics
 | I, II, III                | 1, 2, 3          |
 | ------------------------- | ---------------- |
 | X, XX, XXX                | 10, 20, 30       |
@@ -19,7 +19,7 @@ First in a series of coding challenges.
 No need to go beyond 3999
 
 
-##Additional constraints
+## Additional constraints
 - You can’t repeat a Unit character more than 3 times (e.g. IIII, XXXX, etc. are disallowed)
 - You can’t repeat a Five character (e.g. VV, LL, DD are disallowed)
 - You can only subtract a unit from next highest five/unit, (e.g. IV and IX are allowed, but IL and IM aren’t)
